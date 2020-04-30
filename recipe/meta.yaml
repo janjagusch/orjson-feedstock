@@ -23,7 +23,7 @@ requirements:
   host:
     - python
     - pip
-    - maturin
+    - maturin >=0.8.1
     - toml
   run:
     - python
