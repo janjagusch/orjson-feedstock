@@ -14,10 +14,13 @@ source:
   - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
     sha256: 039a822c4652638c0ed27cdf3440b5c5b0fff8eb41902c17e255899b93a13ac2  # [osx]
     folder: rust-nightly  # [osx]
+  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win]
+    sha256: 7e8f97be7eb32b6f59e40a75e63bc2438a0573092e8312b1be2b52f28f1cc851  # [win]
+    folder: rust-nightly  # [win]
 
 build:
   number: 1
-  skip: true  # [win or py<35]
+  skip: true  # [py<36]
 
 requirements:
   build:
