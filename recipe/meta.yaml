@@ -9,10 +9,11 @@ source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 00fba178d361db5fa12787dae018c8df25207feb7eb79ec52b70259dbeab96d0
   - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux]
-    url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
     sha256: 2e59f105bbe2f5a20920734c73c544175ad282e0490ea307bf93b1f9724b85aa  # [linux]
+    folder: rust-nightly  # [linux]
+  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
     sha256: 039a822c4652638c0ed27cdf3440b5c5b0fff8eb41902c17e255899b93a13ac2  # [osx]
-    folder: rust-nightly
+    folder: rust-nightly  # [osx]
 
 build:
   number: 1
