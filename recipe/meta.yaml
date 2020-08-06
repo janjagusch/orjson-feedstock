@@ -8,13 +8,19 @@ package:
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 00fba178d361db5fa12787dae018c8df25207feb7eb79ec52b70259dbeab96d0
-  - url: https://static.rust-lang.org/dist/2020-04-26/rust-nightly-x86_64-unknown-linux-gnu.tar.gz
-    sha256: a723247878b5b65ec511c86108b9adb99bd1fa9b78ed87986283b93bf9e50d20
-    folder: rust-nightly
+  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux]
+    sha256: 2e59f105bbe2f5a20920734c73c544175ad282e0490ea307bf93b1f9724b85aa  # [linux]
+    folder: rust-nightly  # [linux]
+  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
+    sha256: 039a822c4652638c0ed27cdf3440b5c5b0fff8eb41902c17e255899b93a13ac2  # [osx]
+    folder: rust-nightly  # [osx]
+  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win]
+    sha256: 7e8f97be7eb32b6f59e40a75e63bc2438a0573092e8312b1be2b52f28f1cc851  # [win]
+    folder: rust-nightly  # [win]
 
 build:
-  number: 0
-  skip: true  # [osx or win or py<35]
+  number: 1
+  skip: true  # [py<36]
 
 requirements:
   build:
@@ -47,3 +53,4 @@ extra:
   recipe-maintainers:
     - EntPyle
     - nehaljwani
+    - synapticarbors
