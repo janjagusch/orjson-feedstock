@@ -193,4 +193,5 @@ Feedstock Maintainers
 
 * [@EntPyle](https://github.com/EntPyle/)
 * [@nehaljwani](https://github.com/nehaljwani/)
+* [@synapticarbors](https://github.com/synapticarbors/)
 
