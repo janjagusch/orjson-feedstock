@@ -1,5 +1,5 @@
 {% set name = "orjson" %}
-{% set version = "3.3.1" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 149d6a2bc71514826979b9d053f3df0c2397a99e2b87213ba71605a1626d662c
+    sha256: 2dcfc744cad7dceee7fca55ebdca91cc79e14223acc76423f0f4017e7a2676c9
   - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux]
     sha256: 2e59f105bbe2f5a20920734c73c544175ad282e0490ea307bf93b1f9724b85aa  # [linux]
     folder: rust-nightly  # [linux]
