@@ -1,5 +1,5 @@
 {% set name = "orjson" %}
-{% set version = "3.3.1" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 149d6a2bc71514826979b9d053f3df0c2397a99e2b87213ba71605a1626d662c
-  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux]
-    sha256: 2e59f105bbe2f5a20920734c73c544175ad282e0490ea307bf93b1f9724b85aa  # [linux]
+    sha256: 2dcfc744cad7dceee7fca55ebdca91cc79e14223acc76423f0f4017e7a2676c9
+  - url: https://static.rust-lang.org/dist/2020-09-14/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux]
+    sha256: b5cdd717e1221c478583e49c9a2967b03d7c704c07ca9d2625484a246fd27e0e  # [linux]
     folder: rust-nightly  # [linux]
-  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: 039a822c4652638c0ed27cdf3440b5c5b0fff8eb41902c17e255899b93a13ac2  # [osx]
+  - url: https://static.rust-lang.org/dist/2020-09-14/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
+    sha256: e85abab75b173f5da2020a636ef3c5e21e7729931a3958d7870d769b25f85a7a  # [osx]
     folder: rust-nightly  # [osx]
-  - url: https://static.rust-lang.org/dist/2020-06-09/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win]
-    sha256: 7e8f97be7eb32b6f59e40a75e63bc2438a0573092e8312b1be2b52f28f1cc851  # [win]
+  - url: https://static.rust-lang.org/dist/2020-09-14/rust-nightly-x86_64-pc-windows-msvc.tar.gz  # [win]
+    sha256: 025bfb9a52e2f32a78026967145ada684d60314d5e68febaff90b3607e4a225c  # [win]
     folder: rust-nightly  # [win]
 
 build:
