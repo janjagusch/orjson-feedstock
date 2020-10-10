@@ -19,7 +19,7 @@ source:
     folder: rust-nightly  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<36]
 
 requirements:
