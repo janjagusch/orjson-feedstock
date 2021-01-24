@@ -18,6 +18,6 @@ fi
 ${SRC_DIR}/rust-nightly/install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig
 export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
-maturin build --no-sdist --release --strip --manylinux off
+maturin build --no-sdist --release --strip --manylinux off --cargo-extra-args=-Zfeatures=itarget
 
 "${PYTHON}" -m pip install . -vv
