@@ -15,9 +15,12 @@ if [ "$c_compiler" = gcc ] ; then
     export CARGO_TARGET_${rust_env_arch}_LINKER=$CC
 fi
 
-${SRC_DIR}/rust-nightly/install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig
+cd ${SRC_DIR}/rust-nightly
+./install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig --components=rustc,cargo,rust-std*
+cd -
+
 export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
-maturin build --no-sdist --release --strip --manylinux off
+maturin build --no-sdist --release --strip --manylinux off --cargo-extra-args=-Zfeatures=itarget --interpreter="${PYTHON}"
 
-"${PYTHON}" -m pip install . -vv
+"${PYTHON}" -m pip install $SRC_DIR/target/wheels/orjson*.whl --no-deps -vv
