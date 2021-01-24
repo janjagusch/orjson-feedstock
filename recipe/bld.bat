@@ -4,4 +4,6 @@ set "PATH=%SRC_DIR%\rust-nightly-install\bin;%PATH%"
 
 maturin build --no-sdist --release --strip --manylinux off --interpreter=%PYTHON%
 
-%PYTHON% -m pip install . -vv
+FOR /F "delims=" %%i IN ('dir /s /b target\wheels\*.whl') DO set orjson_wheel=%%i
+
+%PYTHON% -m pip install --no-deps %orjson_wheel% -vv
