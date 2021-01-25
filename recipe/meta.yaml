@@ -20,6 +20,9 @@ source:
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-pc-windows-msvc.tar.gz         # [win]
     sha256: 1fa2edaa7da3aa8bf1903603d06d809bff5c1c30eb0eb6d968d8bf2de216f6aa                                             # [win]
     folder: rust-nightly
+  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-apple-darwin.tar.gz           # [target_platform == 'osx-arm64']
+    sha256: 7d017c5f1fed7d4175dc701c24a2ec1207a4e577923528b8d1f28c0d14f83b35                                             # [target_platform == 'osx-arm64']
+    folder: rust-nightly-aarch64-apple-darwin                                                                            # [target_platform == 'osx-arm64']
 
 build:
   number: 0
@@ -27,8 +30,10 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}    # [not win]
-    - posix    # [win]
+    - python                              # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - {{ compiler('c') }}                 # [not win]
+    - posix                               # [win]
   host:
     - python
     - pip
