@@ -39,6 +39,7 @@ rustflags = [
 ]
 
 EOF
+  _xtra_maturin_args+=(--cargo-extra-args="--features=unstable-simd")
   _xtra_maturin_args+=(--cargo-extra-args="--features=aarch64_neon")
   _xtra_maturin_args+=(--target=aarch64-apple-darwin)
 
