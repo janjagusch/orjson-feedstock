@@ -40,6 +40,7 @@ rustflags = [
 
 EOF
   _xtra_cargo_args+=(--target=aarch64-apple-darwin)
+  _xtra_cargo_args+=(--features=aarch64_neon)
 
   # This variable must be set to the directory containing the target's libpython DSO
   export PYO3_CROSS_LIB_DIR=$PREFIX/lib
