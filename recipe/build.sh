@@ -24,6 +24,7 @@ if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = 
     ./install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig --components=rust-std*
     cd -
 
+    mkdir $SRC_DIR/.cargo
     cat <<EOF >> $SRC_DIR/.cargo/config
 # Required for intermediate codegen stuff
 [target.x86_64-apple-darwin]
