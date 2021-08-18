@@ -11,6 +11,7 @@ source:
     sha256: f58e8898dbc751c89a6fdd17d32e277b9d5bcf3b0f4e64e028ec962200d9d0ca
     patches:
       - 0001-If-target_arch-not-in-x86_64-aarch64-fallback.patch
+      - 0002-Specify-aarch64_neon-feature-for-simdutf8.patch
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
     sha256: 4e974a672a8cd3e72a8d36fc7711d2a3dd315809bce64c628261b4689cb24edf  # [linux64]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]

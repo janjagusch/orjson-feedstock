@@ -40,7 +40,6 @@ rustflags = [
 
 EOF
   _xtra_maturin_args+=(--cargo-extra-args="--features=simdutf8")
-  _xtra_maturin_args+=(--cargo-extra-args="--features=aarch64_neon")
   _xtra_maturin_args+=(--target=aarch64-apple-darwin)
 
   # This variable must be set to the directory containing the target's libpython DSO
