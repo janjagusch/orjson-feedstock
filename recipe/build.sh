@@ -15,8 +15,12 @@ if [ "$c_compiler" = gcc ] ; then
     export CARGO_TARGET_${rust_env_arch}_LINKER=$CC
 fi
 
-declare -a _xtra_cargo_args
-_xtra_cargo_args+=(-Zfeatures=itarget)
+declare -a _xtra_maturin_args
+_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+
+if [ "$target_platform" = "linux-aarch64" ]; then
+  _xtra_maturin_args+=(--cargo-extra-args="--features=simdutf8")
+fi
 
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
     # Install the standard host stuff for target platform
@@ -24,6 +28,7 @@ if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = 
     ./install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig --components=rust-std*
     cd -
 
+    mkdir $SRC_DIR/.cargo
     cat <<EOF >> $SRC_DIR/.cargo/config
 # Required for intermediate codegen stuff
 [target.x86_64-apple-darwin]
@@ -38,7 +43,8 @@ rustflags = [
 ]
 
 EOF
-  _xtra_cargo_args+=(--target=aarch64-apple-darwin)
+  _xtra_maturin_args+=(--cargo-extra-args="--features=simdutf8")
+  _xtra_maturin_args+=(--target=aarch64-apple-darwin)
 
   # This variable must be set to the directory containing the target's libpython DSO
   export PYO3_CROSS_LIB_DIR=$PREFIX/lib
@@ -54,6 +60,6 @@ cd -
 
 export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
-maturin build --no-sdist --release --strip --manylinux off --cargo-extra-args="${_xtra_cargo_args[@]}" --interpreter="${PYTHON}"
+maturin build --no-sdist --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
 
 "${PYTHON}" -m pip install $SRC_DIR/target/wheels/orjson*.whl --no-deps -vv
