@@ -1,5 +1,5 @@
 {% set name = "orjson" %}
-{% set version = "3.6.2" %}
+{% set version = "3.6.3" %}
 {% set rust_nightly_version = "2021-08-17" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: f58e8898dbc751c89a6fdd17d32e277b9d5bcf3b0f4e64e028ec962200d9d0ca
+    sha256: 353cc079cedfe990ea2d2186306f766e0d47bba63acd072e22d6df96c67be993
     patches:
       - 0001-If-target_arch-not-in-x86_64-aarch64-fallback.patch
       - 0002-Specify-aarch64_neon-feature-for-simdutf8.patch
