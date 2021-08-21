@@ -18,10 +18,6 @@ fi
 declare -a _xtra_maturin_args
 _xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
 
-if [ "$target_platform" = "linux-aarch64" ]; then
-  _xtra_maturin_args+=(--cargo-extra-args="--features=simdutf8")
-fi
-
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
     # Install the standard host stuff for target platform
     cd ${SRC_DIR}/rust-nightly-aarch64-apple-darwin
@@ -43,7 +39,6 @@ rustflags = [
 ]
 
 EOF
-  _xtra_maturin_args+=(--cargo-extra-args="--features=simdutf8")
   _xtra_maturin_args+=(--target=aarch64-apple-darwin)
 
   # This variable must be set to the directory containing the target's libpython DSO
