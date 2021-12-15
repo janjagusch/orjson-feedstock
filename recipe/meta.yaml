@@ -25,7 +25,7 @@ source:
     folder: rust-nightly-aarch64-apple-darwin  # [target_platform == 'osx-arm64']
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
 
 requirements:
