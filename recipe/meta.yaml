@@ -1,6 +1,6 @@
 {% set name = "orjson" %}
 {% set version = "3.6.6" %}
-{% set rust_nightly_version = "2021-10-01" %}
+{% set rust_nightly_version = "2022-01-17" %}
 
 package:
   name: {{ name|lower }}
@@ -10,18 +10,18 @@ source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 55dd988400fa7fbe0e31407c683f5aaab013b5bd967167b8fe058186773c4d6c
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: 070d28cb4d8417f39d769a84c7e78d9acefc3f81562b22fd58dfeed7df2b0c96  # [linux64]
+    sha256: 63f367a71b034129ca2fd68c19c977c25aa6eca2acce7369142b1b6d1c3c9cba  # [linux64]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: f242dda4f9902bdb88d691274f6344927f3fc904dad07e7e09ec90cdedcd5965  # [ppc64le]
+    sha256: eb4a8c5fb49861d9213bedfb4660595dfacbf0111675950430cda17206e6491a  # [ppc64le]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    sha256: 82224f878027f5b4cac7bc874eb9ecc511b8d1fad0e6fba452e81f4204aeeb62  # [aarch64]
+    sha256: 43e8ad5eacd808e3732f2f9cc33c74f1a87a7131f54a74fbca17992b6ba46ac4  # [aarch64]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: 7062b29645053ac5e7fc24bf441fd9caf7389994ab92478d3ab9108b7e6851c7  # [osx]
+    sha256: 61ba1b8ad9114fede3592f11d5b1908d4af66ca5acf9bcaf355a66d616980e4c  # [osx]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-pc-windows-msvc.tar.xz  # [win]
-    sha256: a1500d1d0f589db8d42e282d54f860ef82e8ab59a064fc6395b74f453bccfdbd  # [win]
+    sha256: 4167ef3e0ed90dd827d1e26ecf92ea053f3df402b6099ca0553443f26460ce52  # [win]
     folder: rust-nightly
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [target_platform == 'osx-arm64']
-    sha256: 532839cf9a1f2ec0b1471c8997b04c5711677d0b5a5c5c3c4efbe7c5c7941798  # [target_platform == 'osx-arm64']
+    sha256: 84c0256ddb338fda93092e076cf168faff17c20c865cbe116bf1f90c443325e5  # [target_platform == 'osx-arm64']
     folder: rust-nightly-aarch64-apple-darwin  # [target_platform == 'osx-arm64']
 
 build:
@@ -37,7 +37,7 @@ requirements:
   host:
     - python
     - pip
-    - maturin >=0.12.4,<0.13
+    - maturin >=0.12.6,<0.13
     - toml
   run:
     - python
