@@ -18,7 +18,7 @@ source:
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
     sha256: 61ba1b8ad9114fede3592f11d5b1908d4af66ca5acf9bcaf355a66d616980e4c  # [osx]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-pc-windows-msvc.tar.xz  # [win]
-    sha256: 4167ef3e0ed90dd827d1e26ecf92ea053f3df402b6099ca0553443f26460ce52  # [win]
+    sha256: 3ca479004411e64657925b4fcc12ab5bbe005e529d02c5eaa99f91fa7b4344d5  # [win]
     folder: rust-nightly
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [target_platform == 'osx-arm64']
     sha256: 84c0256ddb338fda93092e076cf168faff17c20c865cbe116bf1f90c443325e5  # [target_platform == 'osx-arm64']
