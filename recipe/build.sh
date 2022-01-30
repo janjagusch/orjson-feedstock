@@ -44,9 +44,8 @@ EOF
   # This variable must be set to the directory containing the target's libpython DSO
   export PYO3_CROSS_LIB_DIR=$PREFIX/lib
 
-  # Multiple _syconfigdata files confuses pyo3 on cross compilation
   # xref: https://github.com/PyO3/pyo3/commit/7beb2720
-  find $PYO3_CROSS_LIB_DIR/python$PY_VER/ -maxdepth 1 | grep -i _sysconfigdata | grep -v arm64 | xargs rm -f
+  export PYO3_PYTHON_VERSION=${PY_VER}
 fi
 
 cd ${SRC_DIR}/rust-nightly
