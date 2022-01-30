@@ -35,6 +35,7 @@ requirements:
     - crossenv 1.0                        # [build_platform != target_platform]
     - {{ compiler('c') }}                 # [not win]
     - posix                               # [win]
+    - cargo-bundle-licenses
   host:
     - python
     - pip
@@ -54,6 +55,7 @@ about:
   license_file:
     - LICENSE-APACHE
     - LICENSE-MIT
+    - THIRDPARTY.yml
   summary: orjson is a fast, correct JSON library for Python.
   doc_url: https://github.com/ijl/orjson
   dev_url: https://github.com/ijl/orjson
