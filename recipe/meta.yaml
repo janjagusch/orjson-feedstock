@@ -1,5 +1,5 @@
 {% set name = "orjson" %}
-{% set version = "3.6.8" %}
+{% set version = "3.6.9" %}
 {% set rust_nightly_version = "2022-04-14" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: e19d23741c5de13689bb316abfccea15a19c264e3ec8eb332a5319a583595ace
+    sha256: 37b5bbcc1d5e804be5fd52c15737e7addd08475917ab6dd3de6b791dfb2d7d85
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
     sha256: 1eaf4c3e7c68b051c8c7d3784b06b433201eb9c1b3b74e7498200a2c4239b898  # [linux64]
   - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
