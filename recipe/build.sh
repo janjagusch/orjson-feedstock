@@ -54,7 +54,7 @@ cd -
 
 export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
-maturin build --no-sdist --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
+maturin build --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
 
 "${PYTHON}" -m pip install $SRC_DIR/target/wheels/orjson*.whl --no-deps -vv
 
