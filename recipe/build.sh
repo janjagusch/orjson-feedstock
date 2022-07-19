@@ -16,7 +16,8 @@ if [ "$c_compiler" = gcc ] ; then
 fi
 
 declare -a _xtra_maturin_args
-_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+#_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+_xtra_maturin_args+=(-Zfeatures=itarget)
 
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
     # Install the standard host stuff for target platform
