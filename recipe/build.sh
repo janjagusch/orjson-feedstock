@@ -16,7 +16,8 @@ if [ "$c_compiler" = gcc ] ; then
 fi
 
 declare -a _xtra_maturin_args
-_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+#_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+_xtra_maturin_args+=(-Zfeatures=itarget)
 
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
     # Install the standard host stuff for target platform
@@ -54,7 +55,7 @@ cd -
 
 export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
-maturin build --no-sdist --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
+maturin build --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
 
 "${PYTHON}" -m pip install $SRC_DIR/target/wheels/orjson*.whl --no-deps -vv
 
