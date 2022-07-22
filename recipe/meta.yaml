@@ -36,10 +36,10 @@ requirements:
     - {{ compiler('c') }}                 # [not win]
     - posix                               # [win]
     - cargo-bundle-licenses
+    - maturin >=0.13,<0.14
   host:
     - python
     - pip
-    - maturin >=0.13,<0.14
     - toml
   run:
     - python
