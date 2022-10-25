@@ -27,6 +27,7 @@ requirements:
     - python
     - pip
     - toml
+    - maturin >=0.13,<0.14
   run:
     - python
 
