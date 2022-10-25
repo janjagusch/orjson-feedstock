@@ -1,6 +1,5 @@
 {% set name = "orjson" %}
 {% set version = "3.8.1" %}
-{% set rust_nightly_version = "2022-06-22" %}
 
 package:
   name: {{ name|lower }}
@@ -9,34 +8,21 @@ package:
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 07c42de52dfef56cdcaf2278f58e837b26f5b5af5f1fd133a68c4af203851fc7
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-unknown-linux-gnu.tar.gz  # [linux64]
-    sha256: 327d78f5336a6ddfe3cfdd1177d853d0b876eda464c1c7e9b98b221c36fed7d7  # [linux64]
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-powerpc64le-unknown-linux-gnu.tar.gz  # [ppc64le]
-    sha256: 7f702577b6a444d87d33552b31b20e1b8faa116fed5db48ba10128d3f93d5b40  # [ppc64le]
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-unknown-linux-gnu.tar.gz  # [aarch64]
-    sha256: acba72e2b938cf5e46756a2e6baa8eb7cfd8f566b50b9670217ffeaaef76f4e9  # [aarch64]
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-apple-darwin.tar.gz  # [osx]
-    sha256: b566aae614a3eee43962e43c9fae9767d79790bcd1bfef4f750ec59006a51499  # [osx]
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-x86_64-pc-windows-msvc.tar.xz  # [win]
-    sha256: eede081d44241f3868681ffd88311f3cffc7ea6e9d97528ec40c56ff3b2a9cf5  # [win]
-    folder: rust-nightly
-  - url: https://static.rust-lang.org/dist/{{ rust_nightly_version }}/rust-nightly-aarch64-apple-darwin.tar.gz  # [target_platform == 'osx-arm64']
-    sha256: 25dee47da4289cddc1b9c09726f77a0e412bdca04ab3e57b98dfe0334a890709  # [target_platform == 'osx-arm64']
-    folder: rust-nightly-aarch64-apple-darwin  # [target_platform == 'osx-arm64']
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
 
 requirements:
   build:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-    - crossenv 1.0                        # [build_platform != target_platform]
+    - crossenv                            # [build_platform != target_platform]
+    - maturin >=0.13,<0.14                # [build_platform != target_platform]
     - {{ compiler('c') }}                 # [not win]
+    - {{ compiler('rust') }}
     - posix                               # [win]
     - cargo-bundle-licenses
-    - maturin >=0.13,<0.14
   host:
     - python
     - pip
@@ -47,6 +33,10 @@ requirements:
 test:
   imports:
     - orjson
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/ijl/orjson

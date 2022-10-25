@@ -20,11 +20,6 @@ declare -a _xtra_maturin_args
 _xtra_maturin_args+=(-Zfeatures=itarget)
 
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
-    # Install the standard host stuff for target platform
-    cd ${SRC_DIR}/rust-nightly-aarch64-apple-darwin
-    ./install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig --components=rust-std*
-    cd -
-
     mkdir $SRC_DIR/.cargo
     cat <<EOF >> $SRC_DIR/.cargo/config
 # Required for intermediate codegen stuff
@@ -49,11 +44,6 @@ EOF
   export PYO3_PYTHON_VERSION=${PY_VER}
 fi
 
-cd ${SRC_DIR}/rust-nightly
-./install.sh --verbose --prefix=${SRC_DIR}/rust-nightly-install --disable-ldconfig --components=rustc,cargo,rust-std*
-cd -
-
-export PATH=${SRC_DIR}/rust-nightly-install/bin:$PATH
 
 maturin build --release --strip --manylinux off --interpreter="${PYTHON}" "${_xtra_maturin_args[@]}"
 
