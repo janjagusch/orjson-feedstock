@@ -1,5 +1,5 @@
 {% set name = "orjson" %}
-{% set version = "3.8.3" %}
+{% set version = "3.8.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: eda1534a5289168614f21422861cbfb1abb8a82d66c00a8ba823d863c0797178
+    sha256: 77a3b2bd0c4ef7723ea09081e3329dac568a62463aed127c1501441b07ffc64b
 
 build:
   number: 0
