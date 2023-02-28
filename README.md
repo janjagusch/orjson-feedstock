@@ -1,11 +1,11 @@
-About orjson
-============
+About orjson-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/orjson-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/ijl/orjson
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/orjson-feedstock/blob/main/LICENSE.txt)
 
 Summary: orjson is a fast, correct JSON library for Python.
 
