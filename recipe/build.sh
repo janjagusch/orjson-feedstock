@@ -42,6 +42,10 @@ EOF
 
   # xref: https://github.com/PyO3/pyo3/commit/7beb2720
   export PYO3_PYTHON_VERSION=${PY_VER}
+
+  # xref: https://github.com/conda-forge/python-feedstock/issues/621
+  sed -i.bak 's,aarch64,arm64,g' $BUILD_PREFIX/venv/lib/os-patch.py
+  sed -i.bak 's,aarch64,arm64,g' $BUILD_PREFIX/venv/lib/platform-patch.py
 fi
 
 
