@@ -1,4 +1,4 @@
-{% set version = "3.8.10" %}
+{% set version = "3.8.11" %}
 
 package:
   name: orjson
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/orjson/orjson-{{ version }}.tar.gz
-  sha256: dcf6adb4471b69875034afab51a14b64f1026bc968175a2bb02c5f6b358bd413
+  sha256: 882c77126c42dd93bb35288632d69b1e393863a2b752de3e5fe0112833609496
 
 build:
   number: 0
@@ -17,7 +17,7 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - crossenv                            # [build_platform != target_platform]
-    - maturin >=0.13,<0.15                # [build_platform != target_platform]
+    - maturin >=0.13,<2                   # [build_platform != target_platform]
     - {{ compiler('c') }}                 # [not win]
     - {{ compiler('rust') }}
     - posix                               # [win]
@@ -26,7 +26,7 @@ requirements:
     - python
     - pip
     - toml
-    - maturin >=0.13,<0.15
+    - maturin >=0.13,<2
   run:
     - python
 
