@@ -20,7 +20,7 @@ declare -a _xtra_maturin_args
 _xtra_maturin_args+=(-Zfeatures=itarget)
 
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
-    mkdir $SRC_DIR/.cargo
+    mkdir -p $SRC_DIR/.cargo
     cat <<EOF >> $SRC_DIR/.cargo/config
 # Required for intermediate codegen stuff
 [target.x86_64-apple-darwin]
