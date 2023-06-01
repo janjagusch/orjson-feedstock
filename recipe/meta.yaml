@@ -1,4 +1,4 @@
-{% set version = "3.8.14" %}
+{% set version = "3.9.0" %}
 
 package:
   name: orjson
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/o/orjson/orjson-{{ version }}.tar.gz
-  sha256: 5ea93fd3ef7be7386f2516d728c877156de1559cda09453fc7dd7b696d0439b3
+  sha256: f6dd27c71cd6e146795f876449a8eae74f67ae1e4e244dfc1203489103eb2d94
 
 build:
   number: 0
