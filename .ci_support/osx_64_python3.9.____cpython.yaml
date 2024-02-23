@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '10.12'
 c_compiler:
 - clang
 c_compiler_version:
@@ -18,7 +18,5 @@ python:
 - 3.9.* *_cpython
 rust_compiler:
 - rust
-rust_compiler_version:
-- '1.66'
 target_platform:
 - osx-64

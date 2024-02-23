@@ -22,7 +22,5 @@ python:
 - 3.12.* *_cpython
 rust_compiler:
 - rust
-rust_compiler_version:
-- '1.66'
 target_platform:
 - linux-aarch64
