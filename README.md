@@ -377,6 +377,7 @@ Feedstock Maintainers
 =====================
 
 * [@EntPyle](https://github.com/EntPyle/)
+* [@janjagusch](https://github.com/janjagusch/)
 * [@nehaljwani](https://github.com/nehaljwani/)
 * [@synapticarbors](https://github.com/synapticarbors/)
 
